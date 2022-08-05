@@ -7,15 +7,15 @@ $content = '
 <h2>Identified Applications</h2>
 <ul>';
 
-$sql = 'SELECT * from Applications;';
+$sql = 'SELECT COUNT(*) from Applications;';
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0)
 {
-	while ($row = $result->fetch_assoc())
+	while ($row = $result->fetch_row())
 	{
-		$content .= '<li>' . $row['PackageName'] . '</li>';
+		$content .= '<li>' . $row[0] . ' Applications</li>';
 	}
 
 } else {

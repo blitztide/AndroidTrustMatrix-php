@@ -4,7 +4,7 @@ include('config.php');
 include_once "drawpage.php";
 $content = '
 <h2>Searched Marketplaces</h2>
-<table>
+<table class="list">
 <tr>
 <th>Store Name</th>
 <th>Domain</th>

@@ -1,19 +1,23 @@
 <?php
 define('matrix',true);
 include('config.php');
+include('helper.php');
 include_once "drawpage.php";
 $content = '
 <h2>Trust Scores</h2>
 <ul>';
 
-$sql = 'select DomainScore,MarketScore,CompanyScore from MarketPlace;';
+$sql = 'SELECT name,DomainScore,MarketScore,CompanyScore FROM Marketplace;';
 
-$results = $conn->query($sql);
+$results = $conn->query($sql) or die("Error");
 
 if ($results -> num_rows > 0) {
-	while ($row = $result->fetch_assoc())
+	while ($row = mysqli_fetch_array($results) )
 	{
-		$content .= '<li>' . $row['DomainScore'] . $row['MarketScore'] . $row['CompanyScore'] . '</li>';
+		if ($row[0] != null )
+		{
+			$content .= '<li><table class="outer-table"><tr><td>' . $row[0]. '</td><td><table><tr class="upper">' . print_value($row[1]) . print_value($row[2]) . print_value($row[3]) .'</tr><tr><td>Domain</td><td>Market</td><td>Company</td></tr></table></td></tr></table></li>';
+		}
 	}
 } else {
 	$content .= '<li> No Trust scores </li>';
