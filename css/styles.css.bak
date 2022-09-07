@@ -1,36 +1,25 @@
-:root {
---head: #381d2aff;
---alt: #f39b6dff;
---highlight: #e9e3b4ff;
---body: #FFFEED;
---other: #ABA9C3;
-}
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  border-radius: 30px;
 }
 
 /* Style the header */
 header {
-  background-color: var(--head);
+  background-color: #666;
   padding: 30px;
   text-align: left;
   font-size: 35px;
   color: white;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
 }
 
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
-  width: 100%;
-  margin: 0px;
-  background: var(--alt);
+  width: 10%;
+  background: #ccc;
   padding: 0;
 }
 
@@ -39,33 +28,29 @@ nav ul {
   list-style-type: none;
   padding: 0;
   color:white;
-  margin:0px;
 }
 
 nav li {
-	height: 45px;
-	float: left;
+	padding: 14px 16px;
 }
 
 nav li a {
-	font-weight:bold;
-	display:block;
 	width: 100%;
 	height: 100%;
-	padding: 14px;
 	text-decoration: none;
 	color: black;
 }
 
 nav li:hover{
-	background-color: var(--highlight);
+	background-color: red;
 }
 
 article {
-  padding: 30px;
-  width: 100%;
-  background-color: var(--body);
-  min-height: 70%;
+  float: left;
+  padding: 20px;
+  width: 90%;
+  background-color: #f1f1f1;
+  min-height: 60%;
 }
 
 article table.outer-table {
@@ -75,18 +60,12 @@ article table.outer-table {
 	border-radius: 10px;
 	border-style:groove;
 	border-color:black;
-	background: white;
 	font-weight:bold;
 }
 
 article th, article td {
 	text-align: left;
 	padding: 8px;
-}
-
-article th {
-	background: var(--head);
-	color:white;
 }
 
 article ul {
@@ -120,21 +99,22 @@ article li {
 }
 
 article table.list tr:nth-child(even){
-	background-color: var(--alt);
+	background-color: #dddddd;
 }
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
 footer {
-  background-color: var(--alt);
+  background-color: #777;
   padding: 10px;
   text-align: center;
   color: white;
-  position: relative;
-  bottom: 0;
-  font-weight: bold;
-  margin: none;
-  width: -webkit-fill-available;
-  width: -moz-available;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
 }
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */

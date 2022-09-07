@@ -7,7 +7,7 @@ $content = '
 <h2>Trust Scores</h2>
 <ul>';
 
-$sql = 'SELECT name,DomainScore,MarketScore,CompanyScore FROM Marketplace;';
+$sql = 'SELECT name,DomainScore,MarketScore,CompanyScore FROM Marketplace WHERE COALESCE(MarketScore,DomainScore,CompanyScore) IS NOT NULL;';
 
 $results = $conn->query($sql) or die("Error");
 
