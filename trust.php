@@ -7,7 +7,7 @@ $content = '
 <h2>Trust Scores</h2>
 <ul>';
 
-$sql = 'SELECT name,DomainScore,MarketScore,CompanyScore FROM Marketplace WHERE COALESCE(MarketScore,DomainScore,CompanyScore) IS NOT NULL;';
+$sql = 'SELECT name,DomainScore,MarketScore,CompanyScore FROM Marketplace WHERE COALESCE(MarketScore,DomainScore,CompanyScore) IS NOT NULL AND name = "google play" OR name = "amazon app store" OR name = "fdroid" OR name="aptoide" OR name = "slideme" OR name = "uptodown";';
 
 $results = $conn->query($sql) or die("Error");
 
